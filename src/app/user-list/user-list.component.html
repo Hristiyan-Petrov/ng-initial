@@ -1,0 +1,8 @@
+<section class="container">
+    <section class="add-user-wrapper">
+        <input #userNameInput type="text">
+        <input #userAgeInput type="number">
+        <button (click)="addNewUser(userNameInput, userAgeInput)">Add new user</button>
+    </section>
+    <app-user-list-item *ngFor="let user of userArray" [user]="user"></app-user-list-item>
+</section>
