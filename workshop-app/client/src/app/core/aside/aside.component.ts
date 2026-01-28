@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from 'src/app/shared/interfaces';
 
 @Component({
   selector: 'app-aside',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
+
+  @Input() title!: string; 
+  @Input() posts: Post[] | undefined;
 
   constructor() { }
 
