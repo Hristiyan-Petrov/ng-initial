@@ -1,3 +1,17 @@
-<section class="container">
-    <app-user-list-item *ngFor="let user of userArray" [user]="user"></app-user-list-item>
+<!-- <section *ngIf="users$ | async as users; else loading"> -->
+<section *ngIf="users$">
+    <!-- The syntax "as users" extracts the data from the stream and makes it available as a local variable-->
+    <button (click)="reloadButtonHandler()">Reload</button>
+
+    <section class="container">
+        <app-user-list-item *ngFor="let user of users$" [user]="user"></app-user-list-item>
+    </section>
+
+    <input #searchInput type="text">
+    <button (click)="searchButtonHandler(searchInput)">Search</button>
 </section>
+
+<p *ngIf="!users$">{{message}}</p>
+<!-- <ng-template #loading>
+        <p>{{message}}</p>
+    </ng-template> -->

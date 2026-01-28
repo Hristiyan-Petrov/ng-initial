@@ -21,20 +21,7 @@
 <app-header></app-header>
 
 <main>
-    <!-- <section *ngIf="users$ | async as users; else loading"> -->
-    <section *ngIf="users$">
-        <!-- The syntax "as users" extracts the data from the stream and makes it available as a local variable-->
-        <button (click)="reloadButtonHandler()">Reload</button>
-        <app-user-list [userArray]="users$"> </app-user-list>
-
-        <input #searchInput type="text">
-        <button (click)="searchButtonHandler(searchInput)">Search</button>
-    </section>
-
-    <p *ngIf="!users$">{{message}}</p>
-    <!-- <ng-template #loading>
-        <p>{{message}}</p>
-    </ng-template> -->
+    <router-outlet></router-outlet>
 </main>
 
 <app-footer></app-footer>
