@@ -10,3 +10,24 @@ if (environment.production) {
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+
+
+class MyEventEmitter<T> {
+  subcriptions: ((data: T) => void)[] = [];
+
+  subscribe(callback: (data: T) => void): void {
+    this.subcriptions.push(callback);
+  }
+
+  emit(data: T): void {
+    this.subcriptions.forEach(fn => fn(data));
+  }
+}
+
+const emitter = new MyEventEmitter();
+emitter.subscribe(console.log);
+
+setTimeout(() => {
+  emitter.emit(100);
+}, 2000);
