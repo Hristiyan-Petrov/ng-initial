@@ -1,19 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Post } from 'src/app/shared/interfaces';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-aside',
   templateUrl: './aside.component.html',
   styleUrls: ['./aside.component.scss']
 })
-export class AsideComponent implements OnInit {
+export class AsideComponent<T> {
 
-  @Input() title!: string; 
-  @Input() posts: Post[] | undefined;
+  @Input() title!: string;
+  @Input() posts: T[] | undefined;
+  @Input() itemTemplateRef!: TemplateRef<{ $implicit: T }>
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

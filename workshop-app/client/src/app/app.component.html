@@ -3,11 +3,19 @@
 <div class="container">
   <main>
 
-      <app-theme></app-theme>
+    <app-theme></app-theme>
 
   </main>
 
-  <app-aside [posts]="recentPosts" title="RECENT POSTS"></app-aside>
+  <ng-template #recentPostsTemplate let-item let-index="index">
+    <a href="#">
+      <h3>{{item.themeId.themeName}}</h3>
+      <p>{{item.userId.username}} </p>
+      <p><span> {{item.created_at}} </span></p>
+    </a>
+  </ng-template>
+
+  <app-aside [posts]="recentPosts" title="RECENT POSTS" [itemTemplateRef]="recentPostsTemplate"></app-aside>
 </div>
 
 
