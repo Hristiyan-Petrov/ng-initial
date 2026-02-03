@@ -1,2 +1,8 @@
 <span>{{user?.name}}</span>
 <span>{{user?.email}}</span>
+<a 
+    [routerLink]="['/user-details', user?.id]"
+    [queryParams]="{name: user?.name, filter: 'test'}"
+    fragment="loading1"
+    >
+Details</a>

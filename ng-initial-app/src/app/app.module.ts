@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { UserModule } from './user/user.module';
 import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserModule } from './user/user.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const newInjectionToken = new InjectionToken('Hello Wordld from Injection Token')
 
@@ -15,14 +16,15 @@ export const newInjectionToken = new InjectionToken('Hello Wordld from Injection
   declarations: [
     AppComponent,
     AboutComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CoreModule,
     SharedModule,
-    UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UserModule
   ],
   providers: [
     {

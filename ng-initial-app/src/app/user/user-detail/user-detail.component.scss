@@ -1,0 +1,13 @@
+a {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 5px;
+    background-color: rgb(204, 165, 115);
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: rgb(209, 179, 140);
+    }
+}

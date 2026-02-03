@@ -1,0 +1,17 @@
+<ng-container *ngIf="user$ | async as user; else status">
+    <h3>{{user?.name}} user-detail works!</h3>
+    <p>Username: {{user?.username}}</p>
+    <p>Phone: {{user?.phone}}</p>
+    <a [routerLink]="['/user-details', user.id + 1]">Next</a>
+</ng-container>
+<a (click)="goBack()">Back</a>
+
+<ng-template #status>
+    <div *ngIf="hasError; else loading">
+        <p>Cannot find user.</p>
+    </div>
+
+    <ng-template #loading>
+        <app-loader></app-loader>
+    </ng-template>
+</ng-template>

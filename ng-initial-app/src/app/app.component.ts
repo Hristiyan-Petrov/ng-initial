@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './interfaces/user';
-import { UserService } from './services/user.service';
+import { UserService } from './user/user.service';
 import { interval, Observable, of, Subscription } from 'rxjs';
 import { tap, take, map, catchError } from 'rxjs/operators';
 

@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { IUser } from '../interfaces/user';
 import { newInjectionToken } from '../app.module';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -46,6 +46,17 @@ export class UserService {
           //  Returning 'of([])' tells the Async Pipe:
           // "The stream failed, but here is an empty list to keep things moving."
           return of([]);
+        })
+      );
+  }
+
+  loadUser(id: number): Observable<IUser> {
+    return this.http
+      .get<IUser>(this.api + `/${id}`)
+      .pipe(
+        catchError(err => {
+          console.log('Service caught error: ', err);
+          return throwError(() => err);
         })
       );
   }
