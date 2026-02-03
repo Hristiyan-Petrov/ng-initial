@@ -1,0 +1,7 @@
+<p>main works!</p>
+<p *ngIf="!outlet.isActivated">Expect the rendered children just down from here:</p>
+<nav>
+    <a routerLink="/test/one">One</a>
+    <a routerLink="/test/two">Two</a>
+</nav>
+<router-outlet #outlet="outlet"></router-outlet>

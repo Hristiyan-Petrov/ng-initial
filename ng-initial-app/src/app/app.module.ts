@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { InnerRouterTestModule } from './inner-router-test/inner-router-test.module';
 
 export const newInjectionToken = new InjectionToken('Hello Wordld from Injection Token')
 
@@ -23,8 +24,9 @@ export const newInjectionToken = new InjectionToken('Hello Wordld from Injection
     HttpClientModule,
     CoreModule,
     SharedModule,
+    UserModule,
+    InnerRouterTestModule,
     AppRoutingModule,
-    UserModule
   ],
   providers: [
     {
