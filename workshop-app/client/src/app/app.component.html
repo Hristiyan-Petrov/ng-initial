@@ -1,22 +1,20 @@
 <app-header></app-header>
 
-<div class="container">
-  <main>
+<main>
+    <router-outlet></router-outlet>
 
-    <app-theme></app-theme>
+    <!-- <app-theme></app-theme> -->
 
-  </main>
+    <ng-template #recentPostsTemplate let-item let-index="index">
+      <a href="#">
+        <h3>{{item.themeId.themeName}}</h3>
+        <p>{{item.userId.username}} </p>
+        <p><span> {{item.created_at}} </span></p>
+      </a>
+    </ng-template>
 
-  <ng-template #recentPostsTemplate let-item let-index="index">
-    <a href="#">
-      <h3>{{item.themeId.themeName}}</h3>
-      <p>{{item.userId.username}} </p>
-      <p><span> {{item.created_at}} </span></p>
-    </a>
-  </ng-template>
-
-  <app-aside [posts]="recentPosts" title="RECENT POSTS" [itemTemplateRef]="recentPostsTemplate"></app-aside>
-</div>
+    <!-- <app-aside [posts]="recentPosts" title="RECENT POSTS" [itemTemplateRef]="recentPostsTemplate"></app-aside> -->
+</main>
 
 
 <app-footer></app-footer>
