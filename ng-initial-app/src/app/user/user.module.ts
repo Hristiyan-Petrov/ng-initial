@@ -20,10 +20,10 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule
   ],
   providers: [
-    UserService
+    // UserService
   ],
   exports: [
-  UserListComponent,
-]
+    UserListComponent,
+  ]
 })
 export class UserModule { }
